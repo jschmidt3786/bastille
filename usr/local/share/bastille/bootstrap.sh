@@ -480,7 +480,10 @@ case "${1}" in
     NAME_VERIFY=$(echo "${RELEASE}" | grep -iwE '^([1-9]{2,2})\.[0-9](-RELEASE|-RC[1-5]|-BETA[1-5])$' | tr '[:lower:]' '[:upper:]')
     UPSTREAM_URL="${bastille_url_freebsd}${HW_MACHINE}/${HW_MACHINE_ARCH}/${NAME_VERIFY}"
     PLATFORM_OS="FreeBSD"
-    validate_release_url
+    #validate_release_url
+    bootstrap_directories
+    bootstrap_release
+    
     ;;
 *-stable-LAST|*-STABLE-last|*-stable-last|*-STABLE-LAST)
     ## check for HardenedBSD releases name(previous infrastructure, keep for reference)
